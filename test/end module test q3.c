@@ -19,9 +19,9 @@ void main()
     int choice;
 
     do{
-        printf("\nEnter 1 to add song");
-        printf("\nEnter 2 to display songs library");
-        printf("\nEnter 3 to exit");
+        printf("Enter 1 to add song\n");
+        printf("Enter 2 to display songs library\n");
+        printf("Enter 3 to exit\n");
         printf("\nEnter choice: ");
         scanf("%d", &choice);   
 
@@ -41,7 +41,6 @@ void main()
         {
             printf("\nInvalid choice!");
         }
-
     } while(choice != 3);
 }
 
@@ -49,28 +48,22 @@ void addsong(song library[], int *count)
 {
     printf("\nEnter Song ID: ");
     scanf("%d", &library[*count].id);
-
     printf("Enter Song Title: ");
-    scanf(" %[^\n]", library[*count].title);
-
+    scanf(" %s", library[*count].title);
     printf("Enter Artist Name: ");
-    scanf(" %[^\n]", library[*count].artist);
-
+    scanf(" %s", library[*count].artist);
     printf("Enter Duration: ");
     scanf("%lf", &library[*count].duration);
-
     (*count)++;
-
     printf("\nSong added successfully!");
 }
 
 void displaySongs(song library[], int count)
 {
     int i;
-
     if(count == 0)
     {
-        printf("\nNo songs in library!");
+        printf("No songs in library!\n");
         return;
     }
 
@@ -79,9 +72,9 @@ void displaySongs(song library[], int count)
     for(i = 0; i < count; i++)
     {
         printf("\n\nSong %d", i + 1);
-        printf("\nID: %d", library[i].id);
-        printf("\nTitle: %s", library[i].title);
-        printf("\nArtist: %s", library[i].artist);
-        printf("\nDuration: %.2lf", library[i].duration);
+        printf("ID: %d\n", library[i].id);
+        printf("Title: %s\n", library[i].title);
+        printf("Artist: %s\n", library[i].artist);
+        printf("Duration: %.2lf\n", library[i].duration);
     }
 }
